@@ -68,7 +68,7 @@ const Login = () => {
                         <button type='submit' className="btn btn-neutral mt-4 w-full">Login</button>
 
                         <p className='font-semibold text-center pt-5'>
-                            Don’t Have An Account? <Link className='text-secondary hover:underline' to='/auth/register'>Register</Link>
+                            Don’t Have An Account? <Link className='text-secondary hover:underline' to='/signup'>Register</Link>
                         </p>
                     </fieldset>
                 </form>
