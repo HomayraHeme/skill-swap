@@ -1,0 +1,40 @@
+import { createBrowserRouter } from "react-router";
+import MainLayout from "../Layouts/MainLayout";
+import HomeLayouts from "../Layouts/HomeLayouts";
+import MyProfile from "../Pages/MyProfile";
+import Skills from "../Pages/Skills";
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        Component: MainLayout,
+        children: [
+            {
+                index: true,
+                path: '/',
+                Component: HomeLayouts,
+                loader: async () => {
+                    const res = await fetch('/skill.json');
+                    const data = await res.json();
+                    return data; // make sure skill.json is an array
+                },
+            },
+            {
+                path: '/skills',
+                Component: Skills,
+                loader: async () => {
+                    const res = await fetch('/skill.json');
+                    const data = await res.json(); // now this is an array
+                    return data;
+                }
+
+            },
+            {
+                path: '/profile',
+                Component: MyProfile,
+            }
+        ]
+    },
+]);
+
+export default router;
