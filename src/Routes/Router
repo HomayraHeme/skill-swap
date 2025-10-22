@@ -5,6 +5,7 @@ import MyProfile from "../Pages/MyProfile";
 import Skills from "../Pages/Skills";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
+import ForgetPassword from "../Pages/ForgetPassword";
 
 const router = createBrowserRouter([
     {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
                 path: 'signup',
                 Component: Signup,
             },
+            {
+                path: 'forgetPassword',
+                Component: ForgetPassword,
+            }
         ]
     }
 ]);
