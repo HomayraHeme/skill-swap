@@ -5,19 +5,19 @@ const WorkDetails = () => {
     const steps = [
         {
             id: 1,
-            icon: <FaSearch className="text-4xl text-red-500 mb-4" />,
+            icon: <FaSearch className="text-4xl  text-amber-500 mb-4" />,
             title: 'Browse Skills',
             description: 'Explore hundreds of skills in different categories and find what excites you.',
         },
         {
             id: 2,
-            icon: <FaUserGraduate className="text-4xl text-red-500 mb-4" />,
+            icon: <FaUserGraduate className="text-4xl text-amber-500 mb-4" />,
             title: 'Connect with Experts',
             description: 'Choose a provider, check their ratings, and contact them directly.',
         },
         {
             id: 3,
-            icon: <FaChalkboardTeacher className="text-4xl text-red-500 mb-4" />,
+            icon: <FaChalkboardTeacher className="text-4xl  text-amber-500 mb-4" />,
             title: 'Book & Learn',
             description: 'Book your preferred slot and start learning right away, from anywhere.',
         },

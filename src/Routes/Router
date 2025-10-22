@@ -3,6 +3,8 @@ import MainLayout from "../Layouts/MainLayout";
 import HomeLayouts from "../Layouts/HomeLayouts";
 import MyProfile from "../Pages/MyProfile";
 import Skills from "../Pages/Skills";
+import Login from "../Pages/Login";
+import Signup from "../Pages/Signup";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +37,20 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: '/',
+        Component: MainLayout,
+        children: [
+            {
+                path: 'login',
+                Component: Login,
+            },
+            {
+                path: 'signup',
+                Component: Signup,
+            },
+        ]
+    }
 ]);
 
 export default router;

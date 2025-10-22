@@ -27,13 +27,13 @@ const TopRatedProvider = () => {
     ];
 
     return (
-        <div className="p-4 bg-white shadow-md rounded-lg w-80">
+        <div className="p-4 bg-white shadow-md rounded-lg w-80 ">
 
             <h2 className="text-xl   mb-4 text-center font-bold">Top Rated Providers</h2>
             {providers.map(provider => (
                 <div
                     key={provider.id}
-                    className="flex items-center gap-4 mb-4 p-2 hover:bg-gray-50 rounded-lg border border-gray-400"
+                    className="flex items-center gap-4 mb-4 p-2 hover:bg-gray-50 rounded-lg border border-gray-400 hover:shadow-2xl"
                 >
                     <img
                         src={provider.image}

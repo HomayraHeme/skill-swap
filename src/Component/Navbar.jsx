@@ -38,8 +38,8 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end px-5">
-                    <Link><button className='btn text-amber-300 font-bold'>Login</button></Link>
-                    <Link className='pl-3'><button className='btn bg-amber-300 text-white hover:bg-amber-400 font-bold '>Signup</button></Link>
+                    <Link to='/login'><button className='btn text-amber-300 font-bold'>Login</button></Link>
+                    <Link to='/signup' className='pl-3'><button className='btn bg-amber-300 text-white hover:bg-amber-400 font-bold '>Signup</button></Link>
                 </div>
             </div>
         </div>
