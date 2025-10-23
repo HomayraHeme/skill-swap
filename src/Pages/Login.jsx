@@ -11,13 +11,13 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const { signInUser, signInWithGoogle } = use(AuthContext);
+    const { signIn, signInWithGoogle } = use(AuthContext);
 
     const handleLogin = e => {
         e.preventDefault();
         const emailInput = e.target.email.value;
         const password = e.target.password.value;
-        signInUser(email, password)
+        signIn(email, password)
 
         setError('');
 
@@ -29,6 +29,16 @@ const Login = () => {
             .catch(error => {
                 console.log(error.message);
                 setError(error.message);
+
+                if (error.code === 'auth/invalid-email') {
+                    setError('Invalid email address!');
+                } else if (error.code === 'auth/user-not-found') {
+                    setError('No user found with this email.');
+                } else if (error.code === 'auth/wrong-password') {
+                    setError('Incorrect password. Try again!');
+                } else {
+                    setError('Login failed. Please try again.');
+                }
             });
     };
 
@@ -86,7 +96,13 @@ const Login = () => {
                                 <a className="link link-hover cursor-pointer">Forgot password?</a>
                             </div>
 
-                            {error && <p className='text-red-500 text-xs mt-2'>{error}</p>}
+
+
+                            {error && (
+                                <p className='text-red-500 text-xs mt-2 text-center'>
+                                    {error}
+                                </p>
+                            )}
 
                             <button type='submit' className="btn btn-neutral mt-4 w-full">Login</button>
 

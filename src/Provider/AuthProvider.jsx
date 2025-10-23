@@ -19,7 +19,17 @@ const AuthProvider = ({ children }) => {
     };
     const signInWithGoogle = () => {
         setLoading(true)
-        return signInWithPopup(auth, googleProvider);
+        return signInWithPopup(auth, googleProvider)
+
+            .then(res => {
+                setUser({
+                    name: res.user.displayName,
+                    email: res.user.email,
+                    uid: res.user.uid,
+                    photoURL: res.user.photoURL
+                });
+                return res;
+            });
     }
 
 
@@ -30,10 +40,20 @@ const AuthProvider = ({ children }) => {
     const signIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
+
+            .then(res => {
+                setUser({
+                    name: res.user.displayName,
+                    email: res.user.email,
+                    uid: res.user.uid,
+                    photoURL: res.user.photoURL
+                });
+                return res;
+            });
     };
 
     const logout = () => {
-        return signOut(auth);
+        return signOut(auth).then(() => setUser(null));
     }
 
     useEffect(() => {
