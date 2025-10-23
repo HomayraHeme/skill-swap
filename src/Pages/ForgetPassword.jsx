@@ -13,9 +13,11 @@ const ForgetPassword = () => {
     }, [location.state]);
 
     const handleReset = (e) => {
+
         e.preventDefault();
 
         window.location.href = "https://mail.google.com";
+
     };
 
     return (

@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthContext';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import toast from 'react-hot-toast';
 
 
 const Signup = () => {
@@ -9,6 +10,7 @@ const Signup = () => {
 
     const { createUser, setUser, updateUser } = use(AuthContext)
     const [passError, setPassError] = useState('')
+    const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
 
@@ -41,28 +43,31 @@ const Signup = () => {
         else {
             setPassError('')
 
-            createUser(email, password)
-                .then(result => {
-                    const user = result.user;
-                    // console.log(user);
-                    updateUser({ displayName: name, photoURL: photo }).then(() => {
-                        setUser({ ...user, displayName: name, photoURL: photo });
-                        navigate('/')
-                    })
-                        .catch((error) => {
-                            console.log(error);
-                            setUser(user);
-                        })
 
-                })
-                .catch((error) => {
-                    // const errorCode = error.code;
-                    const errorMessage = error.message;
-                    alert(errorMessage);
-                });
+
 
 
         };
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                updateUser({ displayName: name, photoURL: photo }).then(() => {
+                    setUser({ ...user, displayName: name, photoURL: photo });
+                    toast.success("Account created successfully! Welcome to SkillSwap.");
+                    navigate('/')
+                })
+                    .catch((authError) => {
+                        console.log("Update user error:", authError);
+                        setError(authError.message);
+                        toast.error(authError.message);
+                    });
+            })
+            .catch((authError) => {
+                console.log("Create user error:", authError);
+                setError(authError.message);
+                toast.error(authError.message);
+            });
     };
     const handleTogglePasswordShow = (event) => {
         event.preventDefault();
@@ -78,7 +83,7 @@ const Signup = () => {
 
             <div className='flex justify-center min-h-screen items-center'>
                 <div className="card bg-slate-200 w-full max-w-sm shrink-0 shadow-2xl py-5">
-                    <h2 className='font-semibold text-2xl text-center text-slate-700'>Register your account</h2>
+                    <h2 className='font-semibold text-2xl text-center text-slate-700'>SignUp your account</h2>
                     <form onSubmit={handleRegister} className="card-body">
                         <fieldset className="fieldset">
 
@@ -102,7 +107,14 @@ const Signup = () => {
                             {passError && <p className='text-xs text-red-500'>{passError} </p>}
 
                             <div><a className="link link-hover">Forgot password?</a></div>
-                            <button type='submit' className="btn btn-neutral mt-4">Register</button>
+                            <button type='submit' className="btn btn-neutral mt-4">SignUp</button>
+
+                            {error &&
+                                <p className='text-red-500 text-xs mt-2 text-center'>
+                                    {error}
+                                </p>
+                            }
+
 
                             <p className='font-semibold text-center pt-5'>All ready Have an account ? <Link className='text-secondary hover:underline' to='/login'>Login</Link> </p>
                         </fieldset>

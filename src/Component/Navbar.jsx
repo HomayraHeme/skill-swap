@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router';
 import logoImg from '../assets/SkillSwapLogo.png';
 import { AuthContext } from '../Provider/AuthContext';
 import { FaUser } from 'react-icons/fa';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
 
@@ -13,6 +14,7 @@ const Navbar = () => {
         logout()
             .then(() => {
                 setUser(null);
+                toast.success('Logged out! Come back soon to continue learning.')
             })
             .catch(error => {
                 console.log(error);

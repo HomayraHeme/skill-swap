@@ -51,6 +51,7 @@ const MyProfile = () => {
             await updateProfile(auth.currentUser, {
                 displayName: name,
                 photoURL: photoURL || null,
+
             });
             toast.success("Profile updated successfully!");
             setUpdating(false);

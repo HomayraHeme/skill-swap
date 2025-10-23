@@ -46,7 +46,7 @@ const Testimonial = () => {
                             <div key={testi.id} className="card bg-base-100 shadow-xl border border-gray-100 p-4">
                                 <div className="card-body p-0">
 
-                                    <p className="text-5xl font-serif text-blue-500 opacity-20 mb-2 leading-none">❝</p>
+                                    <p className="text-5xl font-serif text-amber-400 opacity-20 mb-2 leading-none">❝</p>
 
 
                                     <p className="text-sm text-gray-700 italic mb-4">"{testi.quote}"</p>
@@ -54,13 +54,13 @@ const Testimonial = () => {
 
                                     <div className="flex items-center mt-3">
                                         <div className="avatar mr-3">
-                                            <div className="w-10 rounded-full ring ring-blue-500 ring-offset-base-100 ring-offset-2">
+                                            <div className="w-10 rounded-full ring ring-amber-500 ring-offset-base-100 ring-offset-2">
                                                 <img src={testi.avatar} alt={`Avatar of ${testi.name}`} />
                                             </div>
                                         </div>
                                         <div>
                                             <h4 className="text-md font-bold text-gray-800">{testi.name}</h4>
-                                            <p className="text-xs text-blue-600">{testi.skill}</p>
+                                            <p className="text-xs text-amber-400">{testi.skill}</p>
                                         </div>
                                     </div>
                                 </div>

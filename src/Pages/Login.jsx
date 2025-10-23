@@ -31,15 +31,26 @@ const Login = () => {
             console.log('Logged in:', res.user);
             setEmail('');
             setPassword('');
-            toast.success('Logged in successfully!');
+            toast.success('Welcome back! You’ve successfully logged in.');
             navigate(location.state?.from || '/');
         }
         catch (err) {
-            console.log(err);
-            if (err.code === 'auth/invalid-email') setError('Invalid email!');
-            else if (err.code === 'auth/user-not-found') setError('User not found!');
-            else if (err.code === 'auth/wrong-password') setError('Wrong password!');
-            else setError('Login failed!');
+            console.log("Firebase Error Object:", err);
+            if (err.code === 'auth/invalid-email') {
+                setError('Invalid email format. Please check your email.');
+            }
+
+            else if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
+                setError('Invalid email or password.');
+            }
+            else {
+
+                let displayMessage = err.message.replace('Firebase: Error', '').replace(/\(([^)]+)\)/g, '').trim();
+                setError(displayMessage || 'Login failed! An unexpected error occurred.');
+            }
+
+
+            toast.error(err.message);
         }
     };
 

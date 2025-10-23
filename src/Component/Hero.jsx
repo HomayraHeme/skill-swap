@@ -1,17 +1,9 @@
-// import React, { useRef, useState } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-flip';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
-// import './styles.css';
-
-// import required modules
-import { EffectFlip, Pagination, Navigation } from 'swiper/modules';
+import { EffectFlip, Pagination, Navigation, Autoplay } from 'swiper/modules';
 
 export default function App() {
     return (
@@ -22,8 +14,10 @@ export default function App() {
                 grabCursor={true}
                 pagination={true}
                 navigation={true}
-                modules={[EffectFlip, Pagination, Navigation]}
+                modules={[EffectFlip, Pagination, Navigation, Autoplay]}
+                autoplay={{ delay: 3000, disableOnInteraction: true }}
                 className="mySwiper w-60 md:w-80 h-50 md:h-80"
+                loop={true}
             >
                 <SwiperSlide>
                     <img className='w-60 md:w-80 h-50 md:h-80 rounded-2xl' src="https://img.freepik.com/free-vector/teamwork-concept_23-2147853996.jpg" />
