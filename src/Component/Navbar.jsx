@@ -2,7 +2,6 @@ import React, { use, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import logoImg from '../assets/SkillSwapLogo.png';
 import { AuthContext } from '../Provider/AuthContext';
-import { FaUser } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 
 const Navbar = () => {
@@ -43,7 +42,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex="-1"
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-slate-600 rounded-box z-1 mt-3 w-52 p-2 shadow ">
                             {links}
                         </ul>
                     </div>
@@ -91,8 +90,8 @@ const Navbar = () => {
                                     Logout
                                 </button>
                             </div>
-                        )} </div> : <div> <Link to='/login'><button className='btn text-amber-500 font-bold '>Login</button></Link>
-                            <Link to='/signup' className='pl-3'><button className='btn bg-amber-300 text-white hover:bg-amber-400 font-bold '>Signup</button></Link>
+                        )} </div> : <div className='flex items-center'> <Link to='/login'><button className='btn text-amber-500 font-bold'>Login</button></Link>
+                            <Link to='/signup' className='pl-3'><button className='btn bg-amber-300 text-white hover:bg-amber-400 font-bold hidden sm:block '>Signup</button></Link>
                         </div>
                     }
 

@@ -63,7 +63,7 @@ const MyProfile = () => {
 
     return (
         <div className="flex justify-center m-20 px-4">
-            <div className="bg-slate-300 rounded-xl shadow-lg p-8 max-w-md w-full">
+            <div className="bg-slate-300 rounded-xl shadow-lg p-8">
 
                 <div className="flex justify-center mb-6">
                     <img

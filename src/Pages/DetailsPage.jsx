@@ -50,13 +50,13 @@ const DetailsPage = () => {
                     </p>
 
                     <div className="flex items-center mb-2">
-                        <FaStar className="text-yellow-400 mr-1" />
-                        <span className="text-gray-800 font-bold">{skill.rating}</span>
-                        <span className="ml-auto text-gray-800 font-bold">${skill.price}</span>
+
+                        <span className="text-gray-800 font-bold flex items-center"><span className='text-amber-400 mr-1'>Rating:</span>{skill.rating} <FaStar className="text-yellow-400 mr-1 ml-1" /> </span>
+                        <span className="ml-auto pr-15 text-gray-800 font-bold"><span className='text-amber-400'>Price: </span> ${skill.price}</span>
                     </div>
 
                     <p className="text-base-300 mb-2">{skill.description}</p>
-                    <p className="text-base-300 mb-4">Slots Available: {skill.slotsAvailable}</p>
+                    <p className="text-gray-800 mb-4 font-bold"><span className='text-amber-400 mr-1'>Slots Available:</span > {skill.slotsAvailable}</p>
 
 
 
