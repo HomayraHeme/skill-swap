@@ -106,7 +106,7 @@ const Signup = () => {
                             </div>
                             {passError && <p className='text-xs text-red-500'>{passError} </p>}
 
-                            <div><a className="link link-hover">Forgot password?</a></div>
+
                             <button type='submit' className="btn btn-neutral mt-4">SignUp</button>
 
                             {error &&
