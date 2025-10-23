@@ -1,8 +1,9 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const SkillsCard = ({ skill }) => {
-    const { skillName, image, rating, price } = skill;
+    const { skillName, image, rating, price, skillId } = skill;
 
     return (
         <div className="card bg-base-100 shadow-md hover:scale-105 w-55 ">
@@ -18,23 +19,26 @@ const SkillsCard = ({ skill }) => {
                 <h2 className="card-title">{skillName}</h2>
 
 
-                <div className="flex items-center">
-                    {Array.from({ length: 5 }).map((_, index) => (
-                        <FaStar
-                            key={index}
-                            className={index < rating ? "text-yellow-400" : "text-gray-300"}
-                        />
-                    ))}
-                    <span className="ml-2 text-sm">{rating} / 5</span>
+                <div className='flex justify-between'>
+                    <p className="font-semibold text-lg">${price}</p>
+                    <div className="flex items-center">
+                        {Array.from({ length: 1 }).map((_, index) => (
+                            <FaStar
+                                key={index}
+                                className={index < rating ? "text-yellow-400" : "text-gray-300"}
+                            />
+                        ))}
+                        <span className="ml-2 text-sm">{rating} / 5</span>
+                    </div>
+
+
+
+
                 </div>
-
-
-                <p className="font-semibold text-lg">${price}</p>
-
 
                 <div className="card-actions justify-between">
 
-                    <button className="btn btn-outline bg-slate-700 text-white hover:bg-slate-500">View Details</button>
+                    <Link to={`/details/${skillId}`}> <button className="btn  bg-slate-700 text-amber-400 font-bold hover:bg-slate-500">View Details</button></Link>
                 </div>
             </div>
         </div>

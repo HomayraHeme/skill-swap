@@ -6,17 +6,18 @@ import { FaUser } from 'react-icons/fa';
 
 const Navbar = () => {
 
-    const { user, logout } = use(AuthContext)
+    const { user, logout, setUser } = use(AuthContext)
     const [hover, setHover] = useState(false);
 
     const handleSignOut = () => {
         logout()
             .then(() => {
-
+                setUser(null);
             })
             .catch(error => {
                 console.log(error);
             })
+
     }
 
 

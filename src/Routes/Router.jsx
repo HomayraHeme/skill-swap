@@ -6,6 +6,8 @@ import Skills from "../Pages/Skills";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import ForgetPassword from "../Pages/ForgetPassword";
+import DetailsPage from "../Pages/DetailsPage";
+import PrvtRoutes from "./PrvtRoute";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
                 loader: async () => {
                     const res = await fetch('/skill.json');
                     const data = await res.json();
-                    return data; // make sure skill.json is an array
+                    return data;
                 },
             },
             {
@@ -27,7 +29,7 @@ const router = createBrowserRouter([
                 Component: Skills,
                 loader: async () => {
                     const res = await fetch('/skill.json');
-                    const data = await res.json(); // now this is an array
+                    const data = await res.json();
                     return data;
                 }
 
@@ -35,6 +37,17 @@ const router = createBrowserRouter([
             {
                 path: '/profile',
                 Component: MyProfile,
+            },
+            {
+                path: '/details/:skillId',
+                element: <PrvtRoutes>
+                    <DetailsPage></DetailsPage>
+                </PrvtRoutes>,
+                loader: async () => {
+                    const res = await fetch('/skill.json');
+                    const data = await res.json();
+                    return data;
+                }
             }
         ]
     },

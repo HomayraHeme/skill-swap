@@ -28,7 +28,9 @@ const AuthProvider = ({ children }) => {
                     uid: res.user.uid,
                     photoURL: res.user.photoURL
                 });
+                setLoading(false);
                 return res;
+
             });
     }
 
@@ -48,24 +50,34 @@ const AuthProvider = ({ children }) => {
                     uid: res.user.uid,
                     photoURL: res.user.photoURL
                 });
+                setLoading(false);
                 return res;
             });
     };
 
+
+
     const logout = () => {
-        return signOut(auth).then(() => setUser(null));
+        setLoading(true);
+        setUser(null);
+        return signOut(auth);
     }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser)
-            setLoading(false)
+            if (currentUser) {
+
+                setUser(currentUser);
+            } else {
+                setUser(null);
+            }
+            setLoading(false);
         });
+
         return () => {
             unsubscribe();
         }
     }, [])
-
 
     const authData = {
         user,
