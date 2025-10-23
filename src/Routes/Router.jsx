@@ -8,6 +8,7 @@ import Signup from "../Pages/Signup";
 import ForgetPassword from "../Pages/ForgetPassword";
 import DetailsPage from "../Pages/DetailsPage";
 import PrvtRoutes from "./PrvtRoute";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
                 Component: ForgetPassword,
             }
         ]
+    },
+    {
+        path: '/*',
+        Component: ErrorPage,
     }
 ]);
 
