@@ -69,10 +69,16 @@ const Signup = () => {
         setShowPassword(!showPassword);
     }
     return (
-        <div>
+        <div className='w-full max-w-120 bg-amber-200 mx-auto mb-5 text-center rounded-2xl shadow-2xl'>
+            <div className='mx-auto mb-5 text-center w-full max-w-sm '>
+                <h1 className='text-4xl text-amber-500 pt-5 font-bold'> Join the SkillSwap Community and Grow Together!</h1>
+                <h1 className='text-sm text-slate-600 font-bold'> Create your account today to connect with passionate learners and skilled mentors from around the world. Unlock exclusive features, share your talents, learn new skills, and be part of a supportive network that helps you reach your full potential.
+                    Sign up now and start swapping skills that inspire growth!</h1>
+            </div>
+
             <div className='flex justify-center min-h-screen items-center'>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
-                    <h2 className='font-semibold text-2xl text-center '>Register your account</h2>
+                <div className="card bg-slate-200 w-full max-w-sm shrink-0 shadow-2xl py-5">
+                    <h2 className='font-semibold text-2xl text-center text-slate-700'>Register your account</h2>
                     <form onSubmit={handleRegister} className="card-body">
                         <fieldset className="fieldset">
 
@@ -81,7 +87,7 @@ const Signup = () => {
 
 
                             <label className="label">Photo URL</label>
-                            <input name='photo' type="text" className="input" placeholder="Enter your photo URL" />
+                            <input name='photo' type="text" className="input" placeholder="Enter your photo URL" required />
 
                             <label className="label">Email</label>
                             <input name='email' type="email" className="input" placeholder="Email" required />
