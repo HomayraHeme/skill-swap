@@ -15,7 +15,7 @@ export default function App() {
                 pagination={true}
                 navigation={true}
                 modules={[EffectFlip, Pagination, Navigation, Autoplay]}
-                autoplay={{ delay: 3000, disableOnInteraction: true }}
+                autoplay={{ delay: 1000, disableOnInteraction: true }}
                 className="mySwiper w-60 md:w-80 h-50 md:h-80"
                 loop={true}
             >

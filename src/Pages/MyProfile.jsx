@@ -4,6 +4,7 @@ import { getAuth, updateProfile } from "firebase/auth";
 import app from "../Firebase/Firebase.config";
 import toast from "react-hot-toast";
 import { Link } from "react-router";
+import Spinner from "../Component/Spinner";
 
 const auth = getAuth(app);
 
@@ -22,7 +23,7 @@ const MyProfile = () => {
     }, [user]);
 
     if (loading)
-        return <p className="text-center mt-10 text-gray-500">Loading your profile...</p>;
+        return <p className="text-center mt-10 text-gray-500"> <Spinner></Spinner> </p>;
 
 
     if (!user)
@@ -63,17 +64,17 @@ const MyProfile = () => {
 
     return (
         <div className="flex justify-center m-20 px-4">
-            <div className="bg-slate-300 rounded-xl shadow-lg p-8">
+            <div className="bg-slate-300 rounded-xl shadow-lg p-8 md:w-6/12">
 
                 <div className="flex justify-center mb-6">
                     <img
-                        className="w-32 h-32 rounded-full object-cover border-4 border-amber-500"
+                        className="w-50 h-50 rounded-full object-cover border-4 border-amber-500"
                         src={photoURL || "https://img.freepik.com/premium-vector/businessman-faceless-avatar-icon-male-character-symbol-modern-simple-vector-icon_901054-434.jpg"}
                         alt={name || "No Name"}
                     />
                 </div>
 
-                {/* User Info */}
+
                 <div className="text-center mb-6">
                     <h2 className="text-2xl font-semibold text-gray-800">{name || "No Name"}</h2>
                     <p className="text-gray-700">{user.email}</p>

@@ -30,7 +30,7 @@ const Signup = () => {
 
 
         if (!length6dPattern.test(password)) {
-            console.log('password did not match');
+            // console.log('password did not match');
             setPassError('Password must be six character or longer');
             return;
         }
@@ -58,13 +58,13 @@ const Signup = () => {
                     navigate('/')
                 })
                     .catch((authError) => {
-                        console.log("Update user error:", authError);
+                        // console.log("Update user error:", authError);
                         setError(authError.message);
                         toast.error(authError.message);
                     });
             })
             .catch((authError) => {
-                console.log("Create user error:", authError);
+                // console.log("Create user error:", authError);
                 setError(authError.message);
                 toast.error(authError.message);
             });
@@ -74,15 +74,15 @@ const Signup = () => {
         setShowPassword(!showPassword);
     }
     return (
-        <div className='w-full max-w-120 bg-amber-200 mx-auto mb-5 text-center rounded-2xl shadow-2xl'>
-            <div className='mx-auto mb-5 text-center w-full max-w-sm '>
-                <h1 className='text-4xl text-amber-500 pt-5 font-bold'> Join the SkillSwap Community and Grow Together!</h1>
-                <h1 className='text-sm text-slate-600 font-bold'> Create your account today to connect with passionate learners and skilled mentors from around the world. Unlock exclusive features, share your talents, learn new skills, and be part of a supportive network that helps you reach your full potential.
+        <div className='w-full  max-w-80 md:max-w-150 bg-amber-200 mx-auto mb-5 text-center rounded-2xl shadow-2xl'>
+            <div className='mx-auto mb-5 text-center w-full max-w-sm md:max-w-150  '>
+                <h1 className='text-4xl text-amber-500 pt-5 font-bold px-3'> Join the SkillSwap Community and Grow Together!</h1>
+                <h1 className='text-sm text-slate-600 font-bold px-10  '> Create your account today to connect with passionate learners and skilled mentors from around the world. Unlock exclusive features, share your talents, learn new skills, and be part of a supportive network that helps you reach your full potential.
                     Sign up now and start swapping skills that inspire growth!</h1>
             </div>
 
-            <div className='flex justify-center min-h-screen items-center'>
-                <div className="card bg-slate-200 w-full max-w-sm shrink-0 shadow-2xl py-5">
+            <div className='flex justify-center mb-10'>
+                <div className=" card bg-slate-200 w-full max-w-70 md:max-w-sm shrink-0 shadow-2xl py-5 mb-10 ">
                     <h2 className='font-semibold text-2xl text-center text-slate-700'>SignUp your account</h2>
                     <form onSubmit={handleRegister} className="card-body">
                         <fieldset className="fieldset">

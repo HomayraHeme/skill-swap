@@ -4,7 +4,7 @@ import SkillsCard from './SkillsCard';
 
 const Skills = () => {
     const skills = useLoaderData();
-    console.log(skills);
+    // console.log(skills);
 
     return (
         <div>

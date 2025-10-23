@@ -2,20 +2,22 @@ import React, { use } from 'react';
 
 import { Navigate, useLocation } from 'react-router';
 import { AuthContext } from '../Provider/AuthContext';
+import Spinner from '../Component/Spinner';
 
 const PrvtRoutes = ({ children }) => {
     const { user, loading } = use(AuthContext);
 
     const location = useLocation();
-    console.log(location);
+    // console.log(location);
 
     if (loading) {
-        return <span className="loading loading-spinner text-success"></span>
+        return <Spinner></Spinner>
     }
     if (user) {
         return children;
     }
-    return <Navigate state={location?.pathname} to='/login'></Navigate>
+    return <Navigate to='/login' state={{ from: location }} replace />;
+
 };
 
 export default PrvtRoutes;

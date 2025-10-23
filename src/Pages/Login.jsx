@@ -35,7 +35,7 @@ const Login = () => {
             navigate(location.state?.from || '/');
         }
         catch (err) {
-            console.log("Firebase Error Object:", err);
+            // console.log("Firebase Error Object:", err);
             if (err.code === 'auth/invalid-email') {
                 setError('Invalid email format. Please check your email.');
             }
@@ -74,10 +74,10 @@ const Login = () => {
 
 
     return (
-        <div className='w-full max-w-80 bg-amber-200 mx-auto mb-5 text-center rounded-2xl shadow-2xl'>
-            <div className='mx-auto mb-5 text-center w-full max-w-sm '>
+        <div className='w-full max-w-80 md:max-w-150 bg-amber-200 mx-auto mb-5 text-center rounded-2xl shadow-2xl'>
+            <div className='mx-auto mb-5 text-center w-full max-w-sm md:max-w-150 '>
                 <h1 className='text-4xl text-amber-500 pt-5 font-bold'>Back to growing your skills?</h1>
-                <h1 className='text-sm text-slate-600 font-bold'>Unlock your personalized learning space — where you can manage your lessons, connect with mentors, and grow your skills while helping others grow theirs. Log in now to continue building your future with SkillSwap.</h1>
+                <h1 className='text-sm text-slate-600 font-bold px-10 py-5'>Unlock your personalized learning space — where you can manage your lessons, connect with mentors, and grow your skills while helping others grow theirs. Log in now to continue building your future with SkillSwap.</h1>
             </div>
             <div className='flex justify-center mb-10 '>
 
