@@ -71,7 +71,7 @@ const Navbar = () => {
                                         />
                                     ) : (
                                         <div className='w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center cursor-pointer'>
-                                            <FaUser />
+                                            <img src="https://img.freepik.com/premium-vector/businessman-faceless-avatar-icon-male-character-symbol-modern-simple-vector-icon_901054-434.jpg" alt="" />
                                         </div>
                                     )}
 
