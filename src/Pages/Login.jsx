@@ -124,7 +124,7 @@ const Login = () => {
                                 Login with Google
                             </button>
                             <p className='font-semibold text-center pt-5'>
-                                Don’t Have An Account? <Link className='text-secondary hover:underline' to='/signup'>SignUp</Link>
+                                Don’t Have An Account? <Link className='text-amber-600 hover:underline' to='/signup'>SignUp</Link>
                             </p>
                         </fieldset>
                     </form>

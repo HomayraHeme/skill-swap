@@ -116,7 +116,7 @@ const Signup = () => {
                             }
 
 
-                            <p className='font-semibold text-center pt-5'>All ready Have an account ? <Link className='text-secondary hover:underline' to='/login'>Login</Link> </p>
+                            <p className='font-semibold text-center pt-5'>All ready Have an account ? <Link className='text-amber-600 hover:underline' to='/login'>Login</Link> </p>
                         </fieldset>
                     </form>
                 </div>
