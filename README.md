@@ -4,9 +4,13 @@ __Live Site__
 
 **URL**: https://skill-swap-9152c.web.app/
 
+
+
 **Project Goal (Purpose)**
 
 SkillSwap is designed to be a dynamic platform facilitating the non-monetary exchange of knowledge, expertise, and time between individuals. The core goal is to connect users who want to learn a new skill (e.g., coding, cooking, language) with those willing to teach or swap a skill, fostering a collaborative community of mutual growth.
+
+
 
 **Key Features**
 
@@ -21,6 +25,8 @@ SkillSwap is designed to be a dynamic platform facilitating the non-monetary exc
 5.__Interactive Components__: Utilizes modern component libraries for engaging and accessible user interfaces.
 
 6.__Real-time Alerts__: Provides instant feedback and alerts for user actions (e.g., profile updates, login success) using react-toastify.
+
+
 
 **Technologies & Packages Used**
 
