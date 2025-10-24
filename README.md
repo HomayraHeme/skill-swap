@@ -1,16 +1,51 @@
-# React + Vite
+##**SkillSwap**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+__Live Site__
 
-Currently, two official plugins are available:
+**URL**: https://skill-swap-9152c.web.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Project Goal (Purpose)**
 
-## Expanding the ESLint configuration
+SkillSwap is designed to be a dynamic platform facilitating the non-monetary exchange of knowledge, expertise, and time between individuals. The core goal is to connect users who want to learn a new skill (e.g., coding, cooking, language) with those willing to teach or swap a skill, fostering a collaborative community of mutual growth.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+**Key Features**
+
+1.__Secure Authentication__: Robust user registration, login, and social sign-in capabilities powered by Firebase Authentication.
+
+2.__Profile Management__: Users can view and update their personal profiles, including display name and profile picture URL.
+
+3.__Dynamic Skill Catalog__: Browse a comprehensive list of available skills loaded dynamically via the application router.
+
+4.__Responsive UI__: A fully responsive design ensures optimal viewing and usability across mobile, tablet, and desktop devices.
+
+5.__Interactive Components__: Utilizes modern component libraries for engaging and accessible user interfaces.
+
+6.__Real-time Alerts__: Provides instant feedback and alerts for user actions (e.g., profile updates, login success) using react-toastify.
+
+
+
+**Technologies & Packages Used**
+
+This project leverages the following key technologies and npm packages:
+
+__Frontend Framework__: react - Building the user interface.
+
+__Styling__: tailwindcss - Utility-first CSS framework for rapid responsive design.
+
+__UI Components__: daisyui - Tailwind CSS component library for polished UI elements.
+
+__Authentication__: firebase - Handling all authentication logic (sign-up, sign-in, profile update).
+
+__Routing__: react-router - Declarative routing for navigation between pages.
+
+__Animations__: animation.css - Ready-to-use CSS animations for visual flair.
+
+__Swiper__: swiper - Modern, touch-friendly slider and carousel library.
+
+__Icons__: react-icons - Collection of popular icon sets for React projects.
+
+__Notifications__: react-toastify - Displaying success/error notifications and alerts.
