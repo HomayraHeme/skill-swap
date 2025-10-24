@@ -7,6 +7,7 @@ import Banner from '../Pages/Banner';
 import SkillsCard from '../Pages/SkillsCard';
 import { Link, useLoaderData } from 'react-router';
 import Testimonial from '../Pages/Testimonial';
+import AnimationLoad from '../Component/Animation';
 
 const HomeLayouts = () => {
     const skill = useLoaderData();
@@ -20,9 +21,11 @@ const HomeLayouts = () => {
                         <p className='font-bold text-2xl text-center'>Popular skills</p>
                     </div>
 
+
                     <div className='grid grid-cols-1 items-center place-items-center justify-center md:grid-cols-2 lg:grid-cols-3 gap-6 px-6 py-12'>
                         {popularSkill.map(skill => (<SkillsCard skill={skill}></SkillsCard>))}
                     </div>
+
                     <div className='text-center'>
                         <button className='btn   text-white p-2 px-5 rounded-[5px] hover:bg-amber-600 bg-amber-400 font-bold'><Link to='/skills'>Show All</Link></button>
                     </div>
@@ -39,7 +42,7 @@ const HomeLayouts = () => {
                 </aside>
 
             </main>
-            <Testimonial></Testimonial>
+            <AnimationLoad> <Testimonial></Testimonial></AnimationLoad>
 
         </div >
     );

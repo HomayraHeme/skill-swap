@@ -1,14 +1,17 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router';
+import { Link, useLoaderData, useNavigation } from 'react-router';
 import SkillsCard from './SkillsCard';
+import Spinner from '../Component/Spinner';
 
 const Skills = () => {
     const skills = useLoaderData();
     // console.log(skills);
 
+
     return (
+
         <div>
-            <div className="grid grid-cols-1 place-items-center md:grid-cols-3 lg:grid-cols-5 pl-5 gap-4">
+            <div className="grid grid-cols-1 place-items-center md:grid-cols-3 lg:grid-cols-5 p-5 gap-4">
                 {skills.map(skill => (
                     <SkillsCard key={skill.skillId} skill={skill} />
                 ))}
@@ -18,6 +21,7 @@ const Skills = () => {
                 '>Go back to home</button></Link>
             </div>
         </div>
+
 
 
     );

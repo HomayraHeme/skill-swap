@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const createUser = (email, password) => {
+    const createUser = (email, password,) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
 
@@ -22,15 +22,9 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, googleProvider)
 
             .then(res => {
-                setUser({
-                    name: res.user.displayName,
-                    email: res.user.email,
-                    uid: res.user.uid,
-                    photoURL: res.user.photoURL
-                });
+                setUser(res.user);
                 setLoading(false);
                 return res;
-
             });
     }
 
@@ -43,16 +37,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
 
-            .then(res => {
-                setUser({
-                    name: res.user.displayName,
-                    email: res.user.email,
-                    uid: res.user.uid,
-                    photoURL: res.user.photoURL
-                });
-                setLoading(false);
-                return res;
-            });
+
     };
 
 

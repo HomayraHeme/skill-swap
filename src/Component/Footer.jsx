@@ -12,7 +12,7 @@ const Footer = () => {
             </div>
             <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
 
-                {/* Contact Info */}
+
                 <div>
                     <h2 className="font-bold text-lg mb-2">Contact Us</h2>
                     <p>Email: info@skillswap.com</p>
@@ -20,8 +20,8 @@ const Footer = () => {
                     <p>Address: Dhaka, Bangladesh</p>
                 </div>
 
-                {/* Social Links */}
-                <div>
+
+                <div className="pr-22 md:p-0">
                     <h2 className="font-bold text-lg mb-2">Follow Us</h2>
                     <div className="flex gap-4 mt-2">
                         <a href="#" className="hover:text-blue-600"><FaFacebookF /></a>
@@ -31,8 +31,8 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Privacy Policy */}
-                <div>
+
+                <div className="pr-15 md:p-0">
                     <h2 className="font-bold text-lg mb-2">Legal</h2>
                     <ul>
                         <li><Link to="/privacy" className="hover:underline">Privacy Policy</Link></li>

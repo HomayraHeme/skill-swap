@@ -43,7 +43,7 @@ const Testimonial = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {testimonials.map(testi => (
-                            <div key={testi.id} className="card bg-base-100 shadow-xl border border-gray-100 p-4">
+                            <div key={testi.id} className="card  bg-slate-300 shadow-xl   p-4">
                                 <div className="card-body p-0">
 
                                     <p className="text-5xl font-serif text-amber-400 opacity-20 mb-2 leading-none">❝</p>

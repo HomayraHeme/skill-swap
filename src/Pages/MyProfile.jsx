@@ -5,6 +5,7 @@ import app from "../Firebase/Firebase.config";
 import toast from "react-hot-toast";
 import { Link } from "react-router";
 import Spinner from "../Component/Spinner";
+import AnimationLoad from "../Component/Animation";
 
 const auth = getAuth(app);
 
@@ -54,6 +55,7 @@ const MyProfile = () => {
                 photoURL: photoURL || null,
 
             });
+            await auth.currentUser.reload();
             toast.success("Profile updated successfully!");
             setUpdating(false);
         } catch (error) {
@@ -66,13 +68,15 @@ const MyProfile = () => {
         <div className="flex justify-center m-20 px-4">
             <div className="bg-slate-300 rounded-xl shadow-lg p-8 md:w-6/12">
 
-                <div className="flex justify-center mb-6">
-                    <img
-                        className="w-50 h-50 rounded-full object-cover border-4 border-amber-500"
-                        src={photoURL || "https://img.freepik.com/premium-vector/businessman-faceless-avatar-icon-male-character-symbol-modern-simple-vector-icon_901054-434.jpg"}
-                        alt={name || "No Name"}
-                    />
-                </div>
+                <AnimationLoad>
+                    <div className="flex justify-center mb-6">
+                        <img
+                            className="w-50 h-50 rounded-full object-cover border-4 border-amber-500"
+                            src={photoURL || "https://img.freepik.com/premium-vector/businessman-faceless-avatar-icon-male-character-symbol-modern-simple-vector-icon_901054-434.jpg"}
+                            alt={name || "No Name"}
+                        />
+                    </div>
+                </AnimationLoad>
 
 
                 <div className="text-center mb-6">
@@ -80,7 +84,7 @@ const MyProfile = () => {
                     <p className="text-gray-700">{user.email}</p>
                 </div>
 
-                {/* Update Form */}
+
                 <form className="flex flex-col gap-4" onSubmit={handleUpdate}>
                     <input
                         type="text"

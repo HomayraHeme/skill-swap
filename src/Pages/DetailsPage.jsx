@@ -31,7 +31,7 @@ const DetailsPage = () => {
 
     return (
         <AnimationLoad>
-            <div className="max-w-4xl mx-auto m-20 p-6 bg-slate-500 rounded-2xl shadow-lg text-white w-11/12">
+            <div className="max-w-4xl mx-auto m-20 p-6 bg-slate-300 rounded-2xl shadow-lg text-white w-11/12">
                 <Toaster position="top-right" />
 
 
@@ -42,16 +42,16 @@ const DetailsPage = () => {
                         <img
                             src={skill.image?.trim()}
                             alt={skill.skillName}
-                            className="w-4/5    h-11/10 object-cover rounded-lg m-6"
+                            className="w-4/5    h-12/12   rounded-lg m-6"
                         />
-                        <Link to='/skills'><button className="bg-amber-400 text-white py-2 px-4 rounded-lg hover:bg-amber-500 mt-15  ml-6 font-bold w-4/5">Back to Courses</button></Link>
+                        <Link to='/skills'><button className="bg-amber-400 text-white py-2 px-4 rounded-lg hover:bg-amber-500 mt-10  ml-6 font-bold w-4/5">Back to Courses</button></Link>
 
                     </div>
 
                     <div className="flex-1">
                         <h1 className="text-3xl font-bold mb-2 text-amber-400">{skill.skillName}</h1>
-                        <p className="text-base-300 mb-1">Category: {skill.category}</p>
-                        <p className="text-base-300 mb-2">
+                        <p className="text-slate-700 mb-1">Category: {skill.category}</p>
+                        <p className=" text-slate-700 mb-2">
                             Provider: {skill.providerName} ({skill.providerEmail})
                         </p>
 
@@ -61,7 +61,7 @@ const DetailsPage = () => {
                             <span className="ml-auto pr-15 text-gray-800 font-bold"><span className='text-amber-400'>Price: </span> ${skill.price}</span>
                         </div>
 
-                        <p className="text-base-300 mb-2">{skill.description}</p>
+                        <p className=" text-slate-700 mb-2">{skill.description}</p>
                         <p className="text-gray-800 mb-4 font-bold"><span className='text-amber-400 mr-1'>Slots Available:</span > {skill.slotsAvailable}</p>
 
 

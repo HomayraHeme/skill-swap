@@ -7,7 +7,7 @@ const AnimationLoad = ({ children }) => {
         <div>
 
 
-            <div className="animate__animated  animate__rubberBand   ">
+            <div className="animate__animated   animate__fadeIn   ">
                 {children}
 
             </div>
