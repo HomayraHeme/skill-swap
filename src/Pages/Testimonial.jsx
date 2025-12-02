@@ -54,18 +54,18 @@ const Testimonial = () => {
     return (
         <section className="testimonials-section py-16 px-4 bg-base-300">
             <div className="max-w-6xl mx-auto">
-                {/* Title */}
+
                 <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-12">
                     <span className="text-amber-400">Success Stories</span>:{" "}
                     <span className="text-slate-700">Hear From Our Community</span>
                 </h2>
 
-                {/* Swiper Carousel */}
+
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={20}
                     loop={true}
-                    autoplay={{ delay: 2500, disableOnInteraction: false }}
+                    autoplay={{ delay: 1000, disableOnInteraction: false }}
                     pagination={{ clickable: true }}
                     breakpoints={{
                         640: { slidesPerView: 1 },

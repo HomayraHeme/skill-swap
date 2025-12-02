@@ -51,9 +51,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/details/:skillId',
-                element: <PrvtRoutes>
-                    <DetailsPage></DetailsPage>
-                </PrvtRoutes>,
+                element: <DetailsPage></DetailsPage>,
                 loader: async () => {
                     const res = await fetch('/skill.json');
                     const data = await res.json();

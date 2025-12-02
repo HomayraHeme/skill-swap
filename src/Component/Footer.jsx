@@ -8,16 +8,16 @@ const Footer = () => {
     return (
         <footer className="text-gray-100 bg-gray-700 py-6">
 
-            {/* --- লোগো এবং নাম (মাঝখানে থাকবে) --- */}
+
             <div className="grid grid-cols-1 place-items-center pb-6 border-b border-gray-600/50">
                 <img className='w-14 h-14 rounded-full mb-1' src={logoImg} alt="SkillSwap Logo" />
                 <h1 className="text-3xl font-extrabold text-yellow-400">SkillSwap</h1>
             </div>
 
-            {/* --- মূল ফুটার কন্টেন্ট (মাঝখানে থাকবে) --- */}
+
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-6 py-6 text-center">
 
-                {/* ১. কন্ট্যাক্ট/যোগাযোগ */}
+
                 <div className>
                     <h2 className="font-bold text-lg mb-2 text-yellow-400">Contact Us</h2>
                     <div className="space-y-1 text-sm">
@@ -27,7 +27,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* ২. কুইক লিঙ্কস */}
+
                 <div className>
                     <h2 className="font-bold text-lg mb-2 text-yellow-400">Quick Links</h2>
                     <ul className="space-y-1 text-sm">
@@ -39,7 +39,6 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* ৩. ফলো করুন/সোশ্যাল মিডিয়া */}
                 <div className>
                     <h2 className="font-bold text-lg mb-2 text-yellow-400">Follow Us</h2>
                     <div className="flex gap-3 text-xl mt-1 justify-center">
@@ -52,7 +51,6 @@ const Footer = () => {
 
             </div>
 
-            {/* --- কপিরাইট (মাঝখানে থাকবে) --- */}
             <div className="text-center mt-4 pt-4 border-t border-gray-600/50 text-sm text-gray-400">
                 &copy; 2025 SkillSwap. All rights reserved.
             </div>

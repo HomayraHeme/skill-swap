@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
-// Reduced icon imports to only those necessary for the stats section, improving minimalism
+import React, { useEffect, useState, useContext } from 'react';
 import { FaStar, FaClock, FaChartBar, FaUserCircle, FaArrowLeft, FaDollarSign } from 'react-icons/fa';
 import { Link, useLoaderData, useParams } from 'react-router';
 import toast, { Toaster } from 'react-hot-toast';
 import Spinner from '../Component/Spinner';
 import AnimationLoad from '../Component/Animation';
+import { AuthContext } from '../Provider/AuthContext';
+const useAuth = () => {
+    const { user } = useContext(AuthContext);
+    return { user };
+};
 
-// Mock data (unchanged)
 const extendedSkillInfo = {
     1: { duration: '4 Weeks', level: 'Beginner', learns: ['Basic Chords', 'Strumming Patterns', 'Reading Tabs'] },
     2: { duration: '8 Weeks', level: 'Intermediate', learns: ['Daily Conversation', 'Idioms & Phrases', 'Pronunciation'] },
@@ -32,12 +35,18 @@ const DetailsPage = () => {
     const [skill, setSkill] = useState(null);
     const [formData, setFormData] = useState({ name: '', email: '' });
 
+    const { user } = useAuth();
+    const isLoggedIn = !!user;
+
     useEffect(() => {
         const skillDetails = skills?.find(singleSkill => singleSkill.skillId == skillId);
         setSkill(skillDetails);
-    }, [skills, skillId]);
 
-    // Handle Loading/Not Found States (Unchanged, as this is essential logic)
+        if (isLoggedIn && user.email) {
+            setFormData(prev => ({ ...prev, email: user.email }));
+        }
+    }, [skills, skillId, isLoggedIn, user]);
+
     if (!skills || skills.length === 0 || skill === null) return <p className="text-center mt-10 text-white"><Spinner /></p>;
 
     if (skill === undefined) {
@@ -62,10 +71,17 @@ const DetailsPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (!isLoggedIn) {
+            toast.error("You must be logged in to book a session.");
+            return;
+        }
+
         if (isSlotsFull) {
             toast.error("Sorry, all slots are currently booked for this session.");
             return;
         }
+
         toast.success(`Session booked successfully for ${formData.name}!`);
         setFormData({ name: '', email: '' });
     };
@@ -74,8 +90,6 @@ const DetailsPage = () => {
         <AnimationLoad>
             <div className="max-w-7xl mx-auto my-8 md:my-16 p-4 sm:p-8 bg-white rounded-xl md:rounded-3xl shadow-lg w-full md:w-11/12">
 
-
-                {/* --- BACK BUTTON (Minimal) --- */}
                 <div className="mb-6">
                     <Link to='/skills' className="inline-flex items-center text-gray-600 hover:text-amber-500 transition font-semibold text-sm">
                         <FaArrowLeft className="mr-2 text-xs" />
@@ -85,10 +99,8 @@ const DetailsPage = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
 
-                    {/* --- LEFT COLUMN (Image & Primary Details) --- */}
                     <div className="lg:col-span-2 order-2 lg:order-1">
 
-                        {/* Image for Mobile (moved above title on small screens) */}
                         <div className="w-full mb-6 lg:hidden">
                             <img
                                 src={skill.image?.trim()}
@@ -97,13 +109,11 @@ const DetailsPage = () => {
                             />
                         </div>
 
-                        {/* Heading Block */}
                         <div className="mb-6 pb-4 border-b border-gray-100">
                             <p className="text-amber-600 text-sm font-semibold uppercase tracking-widest mb-1">{skill.category}</p>
                             <h1 className="text-4xl md:text-5xl font-extrabold mb-3 text-slate-900 leading-snug">{skill.skillName}</h1>
                         </div>
 
-                        {/* --- KEY STATS SECTION (Minimal Grid) --- */}
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 p-4 border-y border-gray-100">
                             {[
                                 { icon: FaStar, value: skill.rating, label: 'Rating', color: 'text-amber-500' },
@@ -121,7 +131,6 @@ const DetailsPage = () => {
                             ))}
                         </div>
 
-                        {/* --- DESCRIPTION & LEARNING OUTCOMES --- */}
                         <div className="mb-8">
                             <h2 className="text-xl font-bold mb-3 text-slate-800">Overview</h2>
                             <p className="text-slate-700 leading-relaxed text-base">{skill.description}</p>
@@ -139,7 +148,6 @@ const DetailsPage = () => {
                             </ul>
                         </div>
 
-                        {/* --- PROVIDER DETAILS (Dark, Minimal Contrast) --- */}
                         <div className="p-4 bg-gray-800 rounded-lg text-white shadow-md">
                             <div className="flex items-center mb-2">
                                 <FaUserCircle className="mr-2 text-xl text-amber-400" />
@@ -150,13 +158,10 @@ const DetailsPage = () => {
                                 Slots Available: <span className="text-white font-bold">{skill.slotsAvailable}</span>
                             </p>
                         </div>
-
                     </div>
 
-                    {/* --- RIGHT COLUMN (Image & Booking Form) --- */}
                     <div className="lg:col-span-1 order-1 lg:order-2">
 
-                        {/* Image for Desktop */}
                         <div className="w-full mb-8 hidden lg:block">
                             <img
                                 src={skill.image?.trim()}
@@ -165,40 +170,19 @@ const DetailsPage = () => {
                             />
                         </div>
 
-                        {/* --- BOOKING FORM (Sticky and Minimal) --- */}
                         <div className="lg:sticky lg:top-8 p-6 border-t-4 border-amber-500 rounded-lg bg-gray-50 shadow-xl">
-                            <h2 className="text-2xl font-bold mb-5 text-slate-800">Enroll Now</h2>
-                            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    placeholder="Full Name"
-                                    required
-                                    className="input input-bordered w-full text-black p-3 border border-gray-300 rounded-md focus:border-amber-500 transition"
+
+                            {isLoggedIn ? (
+                                <BookingForm
+                                    handleSubmit={handleSubmit}
+                                    handleChange={handleChange}
+                                    formData={formData}
+                                    isSlotsFull={isSlotsFull}
                                 />
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    placeholder="Email Address"
-                                    required
-                                    className="input input-bordered w-full text-black p-3 border border-gray-300 rounded-md focus:border-amber-500 transition"
-                                />
-                                <button
-                                    type="submit"
-                                    disabled={isSlotsFull}
-                                    className={`py-3 px-4 rounded-lg font-bold text-base transition duration-300 ease-in-out uppercase tracking-wider
-                                        ${isSlotsFull
-                                            ? 'bg-red-600 text-white opacity-80 cursor-not-allowed'
-                                            : 'bg-amber-400 text-white outline-1 outline-white hover:bg-amber-600'}`
-                                    }
-                                >
-                                    {isSlotsFull ? 'FULLY BOOKED' : `BOOK SESSION`}
-                                </button>
-                            </form>
+                            ) : (
+                                <LoginPrompt />
+                            )}
+
                         </div>
                     </div>
                 </div>
@@ -206,5 +190,55 @@ const DetailsPage = () => {
         </AnimationLoad>
     );
 };
+
+
+const BookingForm = ({ handleSubmit, handleChange, formData, isSlotsFull }) => (
+    <>
+        <h2 className="text-2xl font-bold mb-5 text-slate-800">Enroll Now</h2>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Full Name"
+                required
+                className="input input-bordered w-full text-black p-3 border border-gray-300 rounded-md focus:border-amber-500 transition"
+            />
+            <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email Address"
+                required
+                className="input input-bordered w-full text-black p-3 border border-gray-300 rounded-md focus:border-amber-500 transition"
+            />
+            <button
+                type="submit"
+                disabled={isSlotsFull}
+                className={`py-3 px-4 rounded-lg font-bold text-base transition duration-300 ease-in-out uppercase tracking-wider
+                    ${isSlotsFull
+                        ? 'bg-red-600 text-white opacity-80 cursor-not-allowed'
+                        : 'bg-amber-400 text-white outline-1 outline-white hover:bg-amber-600'}`
+                }
+            >
+                {isSlotsFull ? 'FULLY BOOKED' : `BOOK SESSION`}
+            </button>
+        </form>
+    </>
+);
+
+const LoginPrompt = () => (
+    <div className="p-4 text-center bg-amber-100 rounded-lg border-2 border-amber-400">
+        <h2 className="text-xl font-bold mb-3 text-slate-800">Login Required</h2>
+        <p className="text-slate-700 mb-4 text-sm">You must be logged in to enroll in this course.</p>
+        <Link to="/login">
+            <button className="py-2 px-4 rounded-lg font-bold text-white bg-amber-500 hover:bg-amber-600 transition">
+                Go to Login
+            </button>
+        </Link>
+    </div>
+);
 
 export default DetailsPage;

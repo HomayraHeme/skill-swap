@@ -3,7 +3,6 @@ import React from 'react';
 const AboutUs = () => {
     return (
         <div className=" min-h-screen ">
-            {/* Hero / Intro */}
             <section className="py-20 px-4 rounded-lg bg-gradient-to-r from-slate-500 to-amber-200 w-11/12 mx-auto max-w-full">
                 <div className="max-w-6xl mx-auto text-center">
                     <h1 className="text-5xl font-extrabold text-white mb-4"><span className='text-amber-400'>About</span> <span className='text-slate-700'>SkillSwap</span></h1>
@@ -18,8 +17,6 @@ const AboutUs = () => {
                     </p>
                 </div>
             </section>
-
-            {/* Mission & Values */}
             <section className="py-16   w-11/12 mx-auto max-w-full ">
                 <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">Our Mission & Values</h2>
                 <div className="grid md:grid-cols-3 gap-8">
@@ -44,7 +41,6 @@ const AboutUs = () => {
                 </div>
             </section>
 
-            {/* Team Section */}
             <section className="pb-16">
                 <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">Meet Our Team</h2>
                 <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 w-11/12 mx-auto max-w-full  ">

@@ -1,30 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLoaderData } from 'react-router'; // Corrected import to react-router-dom
-import SkillsCard from './SkillsCard'; // Assuming SkillsCard component exists
-import Spinner from '../Component/Spinner'; // Assuming Spinner component exists
+import { Link, useLoaderData } from 'react-router';
+import SkillsCard from './SkillsCard';
+import Spinner from '../Component/Spinner';
 import { FaSortAmountDown, FaStar, FaDollarSign, FaFilter, FaArrowLeft } from 'react-icons/fa';
 
 const Skills = () => {
-    // Skills array loaded from the router loader
     const skills = useLoaderData();
-
-    // State for filtering and sorting
     const [filteredSkills, setFilteredSkills] = useState([]);
-    const [sortOrder, setSortOrder] = useState('asc'); // 'asc' or 'desc' for price sorting
+    const [sortOrder, setSortOrder] = useState('asc');
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
     const [minRating, setMinRating] = useState('');
 
-    // State for managing the filter sidebar visibility on mobile
+
     const [isFilterPanelOpen, setIsFilterPanelOpen] = useState(false);
 
-    // Filter and Sort Logic useEffect
+
     useEffect(() => {
         if (!skills) return;
 
         let result = [...skills];
-
-        // 1. Filter by price
         const minP = parseFloat(minPrice);
         const maxP = parseFloat(maxPrice);
 
@@ -35,13 +30,11 @@ const Skills = () => {
             result = result.filter(skill => skill.price <= maxP);
         }
 
-        // 2. Filter by rating
         const minR = parseFloat(minRating);
         if (!isNaN(minR)) {
             result = result.filter(skill => skill.rating >= minR);
         }
 
-        // 3. Sort by price
         result.sort((a, b) => {
             if (sortOrder === 'asc') return a.price - b.price;
             return b.price - a.price;
@@ -52,7 +45,6 @@ const Skills = () => {
 
     if (!skills) return <Spinner />;
 
-    // Helper component for styled input fields
     const FilterInput = ({ icon: Icon, placeholder, value, onChange, min, max }) => (
         <div className="relative mb-3">
             <Icon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -68,14 +60,12 @@ const Skills = () => {
         </div>
     );
 
-    // Sidebar Content Component
     const Sidebar = () => (
         <div className="p-5 bg-white rounded-xl shadow-lg border border-gray-100 lg:sticky lg:top-8">
             <h2 className="text-2xl font-bold mb-6 text-slate-800 flex items-center">
                 <FaFilter className="mr-2 text-amber-500" /> Filter & Sort
             </h2>
 
-            {/* Price Filter */}
             <div className="mb-6 pb-4 border-b border-gray-100">
                 <h3 className="font-semibold text-lg text-gray-700 mb-2 flex items-center">
                     <FaDollarSign className="mr-2 text-green-500" /> Price Range
@@ -94,7 +84,6 @@ const Skills = () => {
                 />
             </div>
 
-            {/* Rating Filter */}
             <div className="mb-6 pb-4 border-b border-gray-100">
                 <h3 className="font-semibold text-lg text-gray-700 mb-2 flex items-center">
                     <FaStar className="mr-2 text-yellow-500" /> Minimum Rating
@@ -109,7 +98,6 @@ const Skills = () => {
                 />
             </div>
 
-            {/* Sort Order */}
             <div className="mb-4">
                 <h3 className="font-semibold text-lg text-gray-700 mb-2 flex items-center">
                     <FaSortAmountDown className="mr-2 text-blue-500" /> Sort By Price
@@ -124,7 +112,6 @@ const Skills = () => {
                 </select>
             </div>
 
-            {/* Clear Filters Button */}
             <button
                 onClick={() => {
                     setMinPrice('');
@@ -146,7 +133,6 @@ const Skills = () => {
                 Explore Available Sessions
             </h1>
 
-            {/* Mobile Filter Toggle */}
             <div className="lg:hidden mb-6">
                 <button
                     onClick={() => setIsFilterPanelOpen(!isFilterPanelOpen)}
@@ -157,15 +143,12 @@ const Skills = () => {
                 </button>
             </div>
 
-            {/* Main Content Grid: Sidebar (1 column) and Skills Grid (3 columns) */}
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-                {/* 1. Sidebar for Filtering & Sorting (Hidden on mobile by default) */}
                 <div className={`lg:col-span-1 ${isFilterPanelOpen ? 'block' : 'hidden'} lg:block`}>
                     <Sidebar />
                 </div>
 
-                {/* 2. Skills Grid */}
                 <div className="lg:col-span-3">
                     <h2 className="text-xl font-semibold text-gray-700 mb-4">
                         Showing {filteredSkills.length} results
@@ -183,7 +166,6 @@ const Skills = () => {
                         )}
                     </div>
 
-                    {/* Go Back Button (Cleanly integrated) */}
                     <div className="text-center pt-12">
                         <Link to='/' className="inline-flex items-center">
                             <button className="py-3 px-6 bg-slate-700 text-white font-bold rounded-xl text-lg hover:bg-slate-900 transition shadow-lg">
