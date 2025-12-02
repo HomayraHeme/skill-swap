@@ -6,40 +6,29 @@ const SkillsCard = ({ skill }) => {
     const { skillName, image, rating, price, skillId } = skill;
 
     return (
-        <div className="card bg-slate-300 shadow-md hover:scale-105 w-80 md:w-55 ">
-            <figure className="px-4 pt-2">
-                <img
-                    src={image || "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"}
-                    alt={skillName}
-                    className="rounded-lg h-30 w-full object-cover"
-                />
-            </figure>
+        <div className="  bg-slate-300  shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-transform hover:scale-105 w-56 md:w-45 flex flex-col justify-between">
+            <img
+                src={image || "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"}
+                alt={skillName}
+                className="h-28 w-full object-cover"
+            />
 
-            <div className="card-body">
-                <h2 className="card-title text-amber-500">{skillName}</h2>
+            <div className="px-3 py-2 flex flex-col justify-between flex-grow">
+                <h2 className="text-lg font-semibold text-gray-800 mb-1 truncate">{skillName}</h2>
 
-
-                <div className='flex justify-between'>
-                    <p className="font-semibold text-lg">${price}</p>
+                <div className="flex justify-between items-center text-sm mb-2">
+                    <p className="font-medium text-gray-700">${price}</p>
                     <div className="flex items-center">
-                        {Array.from({ length: 1 }).map((_, index) => (
-                            <FaStar
-                                key={index}
-                                className={index < rating ? "text-yellow-400" : "text-gray-300"}
-                            />
-                        ))}
-                        <span className="ml-2 text-sm">{rating} / 5</span>
+                        <FaStar className="text-yellow-400 text-xs mr-1" />
+                        <span className="text-gray-600">{rating} / 5</span>
                     </div>
-
-
-
-
                 </div>
 
-                <div className="card-actions justify-between">
-
-                    <Link to={`/details/${skillId}`}> <button className="btn  bg-slate-700 text-amber-400 font-bold hover:bg-slate-500">View Details</button></Link>
-                </div>
+                <Link to={`/details/${skillId}`}>
+                    <button className="w-full py-1.5 text-sm bg-slate-700 text-amber-400 font-semibold rounded outline-1 outline-white hover:bg-slate-600 transition">
+                        View Details
+                    </button>
+                </Link>
             </div>
         </div>
     );

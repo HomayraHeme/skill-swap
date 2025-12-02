@@ -11,40 +11,52 @@ import AnimationLoad from '../Component/Animation';
 
 const HomeLayouts = () => {
     const skill = useLoaderData();
-    const popularSkill = skill.slice(0, 9)
+    const popularSkill = skill.slice(0, 8);
+
     return (
         <div>
             <Banner></Banner>
-            <main className='w-11/12 mx-auto my-3  grid md:grid-cols-12 items-start pt-20  grid-cols-1'>
-                <div className="main px-5  col-span-8">
-                    <div>
-                        <p className='font-bold text-2xl text-center'>Popular skills</p>
-                    </div>
 
+            {/* MAIN SECTION */}
+            <div className='w-11/12 mx-auto max-w-full mb-3 pt-5 grid md:grid-cols-12 grid-cols-1 gap-6'>
 
-                    <div className='grid grid-cols-1 items-center place-items-center justify-center md:grid-cols-2 lg:grid-cols-3 gap-6 px-6 py-12'>
-                        {popularSkill.map(skill => (<SkillsCard skill={skill}></SkillsCard>))}
-                    </div>
+                {/* Popular Skills (Sticky) */}
+                <div className='col-span-8 relative'>
+                    <div className='sticky top-24'>
+                        <p className='font-bold text-3xl text-center text-slate-700'>Popular skills</p>
 
-                    <div className='text-center'>
-                        <button className='btn   text-white p-2 px-5 rounded-[5px] hover:bg-amber-600 bg-amber-400 font-bold'><Link to='/skills'>Show All</Link></button>
+                        <div className='grid grid-cols-1 items-center place-items-center justify-center md:grid-cols-3 lg:grid-cols-4 gap-6 py-12'>
+                            {popularSkill.map(skill => (
+                                <SkillsCard key={skill.skillId} skill={skill}></SkillsCard>
+                            ))}
+                        </div>
+
+                        <div className='text-center'>
+                            <button className='btn btn-outline text-white  outline-white rounded-[5px] hover:bg-amber-600 bg-amber-400 font-bold px-8'>
+                                <Link to='/Skills'>Show All</Link>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <aside className='col-span-3 sticky top-0 h-fit flex flex-col justify-center items-center md:items-start   '>
 
-                    <div className='pt-20'>
-                        <TopRatedProvider></TopRatedProvider>
+                {/* Sidebar */}
+                <aside className='col-span-3 pl-14 h-fit flex flex-col justify-center items-center md:items-start'>
+                    <div className='sticky top-24 w-full'>
+                        <div className='pt-10'>
+                            <TopRatedProvider></TopRatedProvider>
+                        </div>
+                        <div className='pt-5'>
+                            <WorkDetails></WorkDetails>
+                        </div>
                     </div>
-                    <div className='pt-5'>
-                        <WorkDetails></WorkDetails>
-                    </div>
-
                 </aside>
+            </div>
 
-            </main>
-            <AnimationLoad> <Testimonial></Testimonial></AnimationLoad>
-
-        </div >
+            {/* Testimonials */}
+            <AnimationLoad>
+                <Testimonial></Testimonial>
+            </AnimationLoad>
+        </div>
     );
 };
 

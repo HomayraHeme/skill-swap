@@ -9,6 +9,8 @@ import ForgetPassword from "../Pages/ForgetPassword";
 import DetailsPage from "../Pages/DetailsPage";
 import PrvtRoutes from "./PrvtRoute";
 import ErrorPage from "../Pages/ErrorPage";
+import AboutUs from "../Pages/AboutUs";
+import Contact from "../Pages/Contact";
 
 const router = createBrowserRouter([
     {
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
                 },
             },
             {
-                path: '/skills',
+                path: '/Skills',
                 Component: Skills,
                 loader: async () => {
                     const res = await fetch('/skill.json');
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
             {
                 path: '/profile',
                 Component: MyProfile,
+            },
+            {
+                path: '/aboutUs',
+                Component: AboutUs,
+            },
+            {
+                path: '/contact',
+                Component: Contact,
             },
             {
                 path: '/details/:skillId',

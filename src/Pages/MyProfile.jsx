@@ -65,8 +65,8 @@ const MyProfile = () => {
     };
 
     return (
-        <div className="flex justify-center m-20 px-4">
-            <div className="bg-slate-300 rounded-xl shadow-lg p-8 md:w-6/12">
+        <div className="flex justify-center my-16 ">
+            <div className="bg-slate-300 rounded-xl shadow-lg p-8 md:w-11/12 mx-auto max-w-full">
 
                 <AnimationLoad>
                     <div className="flex justify-center mb-6">

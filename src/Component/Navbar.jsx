@@ -26,16 +26,27 @@ const Navbar = () => {
         <li ><NavLink to='/' className={({ isActive }) =>
             isActive ? "underline  text-amber-400" : "text-white"
         }>Home</NavLink></li>
-        <li><NavLink to='/profile' className={({ isActive }) =>
+        <li><NavLink to='/Skills' className={({ isActive }) =>
             isActive ? "underline  text-amber-400" : "text-white"
-        }>My Profile</NavLink></li>
+        }>All Skills</NavLink></li>
+        {
+            user && <li><NavLink to='/profile' className={({ isActive }) =>
+                isActive ? "underline  text-amber-400" : "text-white"
+            }>My Profile</NavLink></li>
+        }
+        <li><NavLink to='/aboutUs' className={({ isActive }) =>
+            isActive ? "underline  text-amber-400" : "text-white"
+        }>About Us</NavLink></li>
+        <li><NavLink to='/contact' className={({ isActive }) =>
+            isActive ? "underline  text-amber-400" : "text-white"
+        }>Contact</NavLink></li>
     </>
 
     return (
 
-        <div className='sticky top-0 h-fit z-50'>
-            <div className="navbar bg-gray-500 shadow-md h-14 mb-8 ">
-                <div className="navbar-start px-0 md:px-5">
+        <div className='sticky top-0 h-fit z-50  bg-gray-500 '>
+            <div className="navbar  h-14 mb-8 w-11/12 mx-auto max-w-full ">
+                <div className="navbar-start px-0  ">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
@@ -54,7 +65,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end px-5">
+                <div className="navbar-end">
 
                     {
                         user ? <div>  {user && (
