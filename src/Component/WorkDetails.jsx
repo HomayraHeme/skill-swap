@@ -23,7 +23,7 @@ const WorkDetails = () => {
         },
     ];
     return (
-        <div className="p-8  bg-slate-300 w-80 rounded-xl shadow-md">
+        <div className="p-8  bg-slate-300 w-80 rounded-xl shadow-md md:w-55 lg:w-80">
             <h2 className="text-3xl font-bold text-center mb-5">How It Works</h2>
             <p className="text-gray-600 text-center mb-5">
                 Learn new skills in three simple steps. It's fast, easy, and fun!
@@ -33,7 +33,7 @@ const WorkDetails = () => {
                 {steps.map(step => (
                     <div
                         key={step.id}
-                        className="   bg-slate-300 hover:bg-white px-6 py-2 rounded-lg  border border-gray-400 hover:shadow-xl transition duration-300 w-65 pl-5 h-30 mb-4"
+                        className="   bg-slate-300 hover:bg-white px-6 py-2 rounded-lg  border border-gray-400 hover:shadow-xl transition duration-300  lg:h-30 md:h-37 mb-4"
                     >
                         <div className='flex'>
                             <div>{step.icon}</div>

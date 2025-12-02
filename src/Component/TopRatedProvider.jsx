@@ -27,7 +27,7 @@ const TopRatedProvider = () => {
     ];
 
     return (
-        <div className="p-4  bg-slate-300 shadow-md rounded-lg w-80 ">
+        <div className="p-4  bg-slate-300 shadow-md w-80 rounded-lg lg:w-80 md:w-55 ">
 
             <h2 className="text-xl   mb-4 text-center font-bold">Top Rated Providers</h2>
             {providers.map(provider => (

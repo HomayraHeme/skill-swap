@@ -16,11 +16,8 @@ const HomeLayouts = () => {
     return (
         <div>
             <Banner></Banner>
-
-            {/* MAIN SECTION */}
             <div className='w-11/12 mx-auto max-w-full mb-3 pt-5 grid md:grid-cols-12 grid-cols-1 gap-6'>
 
-                {/* Popular Skills (Sticky) */}
                 <div className='col-span-8 relative'>
                     <div className='sticky top-24'>
                         <p className='font-bold text-3xl text-center text-slate-700'>Popular skills</p>
@@ -39,9 +36,8 @@ const HomeLayouts = () => {
                     </div>
                 </div>
 
-                {/* Sidebar */}
-                <aside className='col-span-3 pl-14 h-fit flex flex-col justify-center items-center md:items-start'>
-                    <div className='sticky top-24 w-full'>
+                <aside className='col-span-3 px-10  lg:pl-14 h-fit flex flex-col justify-center items-center md:items-start'>
+                    <div className='sticky top-24 w-full md:w-20'>
                         <div className='pt-10'>
                             <TopRatedProvider></TopRatedProvider>
                         </div>
@@ -52,7 +48,6 @@ const HomeLayouts = () => {
                 </aside>
             </div>
 
-            {/* Testimonials */}
             <AnimationLoad>
                 <Testimonial></Testimonial>
             </AnimationLoad>
