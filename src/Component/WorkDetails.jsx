@@ -23,7 +23,7 @@ const WorkDetails = () => {
         },
     ];
     return (
-        <div className="p-8  bg-slate-300 w-80 rounded-xl shadow-md md:w-55 lg:w-80">
+        <div className="p-8  bg-slate-300 w-98 rounded-xl shadow-md md:w-55 lg:w-80">
             <h2 className="text-3xl font-bold text-center mb-5">How It Works</h2>
             <p className="text-gray-600 text-center mb-5">
                 Learn new skills in three simple steps. It's fast, easy, and fun!

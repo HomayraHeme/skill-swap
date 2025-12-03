@@ -6,7 +6,7 @@ const SkillsCard = ({ skill }) => {
     const { skillName, image, rating, price, skillId } = skill;
 
     return (
-        <div className="  bg-slate-300  shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-transform hover:scale-105 w-56 md:w-45 flex flex-col justify-between">
+        <div className="  bg-slate-300  shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-transform hover:scale-105 w-full md:w-45 flex flex-col justify-between">
             <img
                 src={image || "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"}
                 alt={skillName}

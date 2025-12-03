@@ -27,33 +27,35 @@ const TopRatedProvider = () => {
     ];
 
     return (
-        <div className="p-4  bg-slate-300 shadow-md w-80 rounded-lg lg:w-80 md:w-55 ">
+        <div className='pr-100'>
+            <div className=" p-4 bg-slate-300 shadow-md w-98 rounded-lg lg:w-80 md:w-55 ">
 
-            <h2 className="text-xl   mb-4 text-center font-bold">Top Rated Providers</h2>
-            {providers.map(provider => (
-                <div
-                    key={provider.id}
-                    className="flex items-center gap-4 mb-4 p-2 hover:bg-gray-50 rounded-lg border border-gray-400 hover:shadow-2xl"
-                >
-                    <img
-                        src={provider.image}
-                        alt={provider.name}
-                        className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div className="flex-1">
-                        <h3 className="font-semibold">{provider.name}</h3>
-                        <p className="text-sm text-gray-500">{provider.skill}</p>
-                        <div className="flex items-center mt-1">
-                            {Array.from({ length: 5 }).map((_, index) => (
-                                <FaStar
-                                    key={index}
-                                    className={index < provider.rating ? "text-yellow-400" : "text-gray-300"}
-                                />
-                            ))}
+                <h2 className="text-xl   mb-4 text-center font-bold">Top Rated Providers</h2>
+                {providers.map(provider => (
+                    <div
+                        key={provider.id}
+                        className="flex items-center gap-4 mb-4 p-2 hover:bg-gray-50 rounded-lg border border-gray-400 hover:shadow-2xl"
+                    >
+                        <img
+                            src={provider.image}
+                            alt={provider.name}
+                            className="w-12 h-12 rounded-full object-cover"
+                        />
+                        <div className="flex-1">
+                            <h3 className="font-semibold">{provider.name}</h3>
+                            <p className="text-sm text-gray-500">{provider.skill}</p>
+                            <div className="flex items-center mt-1">
+                                {Array.from({ length: 5 }).map((_, index) => (
+                                    <FaStar
+                                        key={index}
+                                        className={index < provider.rating ? "text-yellow-400" : "text-gray-300"}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 };

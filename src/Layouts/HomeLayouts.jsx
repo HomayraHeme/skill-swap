@@ -36,9 +36,9 @@ const HomeLayouts = () => {
                     </div>
                 </div>
 
-                <aside className='col-span-3 px-10  lg:pl-14 h-fit flex flex-col justify-center items-center md:items-start'>
+                <aside className='col-span-3 md:px-10  lg:pl-14 h-fit flex flex-col justify-center items-center md:items-start'>
                     <div className='sticky top-24 w-full md:w-20'>
-                        <div className='pt-10'>
+                        <div className='pt-10 '>
                             <TopRatedProvider></TopRatedProvider>
                         </div>
                         <div className='pt-5'>
